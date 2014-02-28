@@ -1,0 +1,36 @@
+/*! esri-leaflet-demographics - v0.0.1-beta.1 - 2014-02-27
+*   Copyright (c) 2014 Environmental Systems Research Institute, Inc.
+*   Apache License*/
+.esri-legend-container {
+  background: #ffffff;
+  padding: 12px;
+}
+
+.esri-legend-header {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.esri-legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.esri-legend-list-item {
+  padding: 8px 0 0 0;
+}
+
+.esri-legend-image {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  padding-right: 8px;
+}
+
+.esri-legend-description {
+  font-size: 13px;
+  line-height: 21px;
+}

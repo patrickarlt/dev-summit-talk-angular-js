@@ -1,0 +1,86 @@
+/* Base16 Atelier Forest Light - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/forest) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+/* https://github.com/jmblog/color-themes-for-highlightjs */
+
+/* Atelier Forest Light Comment */
+.comment,
+.title {
+  color: #766e6b;
+}
+
+/* Atelier Forest Light Red */
+.variable,
+.attribute,
+.tag,
+.regexp,
+.ruby .constant,
+.xml .tag .title,
+.xml .pi,
+.xml .doctype,
+.html .doctype,
+.css .id,
+.css .class,
+.css .pseudo {
+  color: #f22c40;
+}
+
+/* Atelier Forest Light Orange */
+.number,
+.preprocessor,
+.pragma,
+.built_in,
+.literal,
+.params,
+.constant {
+  color: #df5320;
+}
+
+/* Atelier Forest Light Yellow */
+.ruby .class .title,
+.css .rules .attribute {
+  color: #d5911a;
+}
+
+/* Atelier Forest Light Green */
+.string,
+.value,
+.inheritance,
+.header,
+.ruby .symbol,
+.xml .cdata {
+  color: #5ab738;
+}
+
+/* Atelier Forest Light Aqua */
+.css .hexcolor {
+  color: #00ad9c;
+}
+
+/* Atelier Forest Light Blue */
+.function,
+.python .decorator,
+.python .title,
+.ruby .function .title,
+.ruby .title .keyword,
+.perl .sub,
+.javascript .title,
+.coffeescript .title {
+  color: #407ee7;
+}
+
+/* Atelier Forest Light Purple */
+.keyword,
+.javascript .function {
+  color: #6666ea;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .cdata {
+  opacity: 0.5;
+}
