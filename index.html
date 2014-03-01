@@ -26,7 +26,7 @@
 		<link rel="stylesheet" href="lib/esri-leaflet-demographics/esri-leaflet-legend.css">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/solarized.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -51,10 +51,336 @@
 					<p><a href="http://twitter.com/patrickarlt">@patrickarlt</a> - <a href="http://patrickarlt.github.io/dev-summit-talk-angular-js/">http://patrickarlt.github.io/dev-summit-talk-angular-js/</a></p>
 				</section>
 
+				<section>
+					<h1>Or How I Learned to Stop Worrying and Love Angular JS</h1>
+				</section>
+
+				<section>
+					<h2>Hello I'm Partick and I have an Angular JS problem...</h2>
+				</section>
+
+				<section>
+					<h2>The Internet says Angular JS is amazing!</h2>
+					<img src="not-impressed.png" alt="" class="fragment">
+				</section>
+
+				<section>
+					<div class="block-group block-group-2-up">
+						<div class="block" style="text-align:center;">
+							<br>
+							<img src="diagram1.png" alt="">
+							<br>
+						</div>
+						<div class="block" style="text-align:center;">
+							<br>
+							<img src="diagram2.png" alt="">
+							<br>
+						</div>
+						<div class="block" style="text-align:center;">
+							<br>
+							<img src="diagram3.png" alt="">
+							<br>
+						</div>
+						<div class="block" style="text-align:center;">
+							<br>
+							<img src="diagram4.png" alt="">
+							<br>
+						</div>
+					</div>
+				</section>
+
 				<section class="left">
+					<div style="vertical-align:middle;">
+						<img src="terminology.jpg" alt="" class="float:left;" width="800">
+						<ul style="float: right; margin-top: 1.5em; margin-right: 2em;">
+							<li>directives?</li>
+							<li>transclusion?</li>
+							<li>HTML compilation?</li>
+							<li>providers?</li>
+							<li>injectors?</li>
+							<li>disgest cycle?</li>
+							<li>indigestion?</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<img src="junk.jpg" alt="what a peice of junk">
+				</section>
+
+				<section class="left">
+					<h1>Web Components</h1>
+					<br>
+					<h3>Extend the vocabulary of HTML</h3>
+					<br>
+					<ul>
+						<li>Shadow DOM</li>
+						<li>HTML Templates</li>
+						<li>Custom Elements</li>
+						<li>HTML Imports</li>
+					</ul>
+					<br><br>
+					<p><a href="https://www.youtube.com/watch?v=fqULJBBEVQE#t=177">https://www.youtube.com/watch?v=fqULJBBEVQE#t=177</a></p>
+				</section>
+
+				<section>
+					<pre><code class="xml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Mind Blown&lt;/title&gt;
+		&lt;link rel=&quot;import&quot; href=&quot;esri-maps.html&quot;&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;map id=&quot;map&quot;center=&quot;45.528, -122.680&quot; zoom=&quot;15&quot;&gt;
+			&lt;featureLayer id=&quot;parks&quot; url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0&quot; /&gt;
+		&lt;/map&gt;
+
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			var map = document.getElementById("map");
+
+			map.on(&quot;click&quot;, function(e){
+				console.log(&quot;map was clicked on&quot;);
+			});
+
+			var parks = document.getElementById("parks");
+
+			parks.on(&quot;click&quot;, function(feature){
+				console.log(&quot;you clicked on &quot; + feature.name);
+			});
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				</section>
+
+				<section class="left">
+					<h1>So This Angular JS Thing...</h1>
+					<br>
+					<p>Angular is the only production-ready way to do ANYTHING like Web Components</p>
+					<p>Angular also has tons of stuff for building complex web apps</p>
+					<br>
+					<p class="fragment">Angular JS is a shim for the future of the internet...</p>
+				</section>
+
+				<section>
+					<h3>My First Angular App - Map Attack</h3>
+					<img src="map-attack-realtime-geofencing.jpg" alt="Map Attack">
+					<p>~275 lines of code</p>
+				</section>
+
+				<section class="left">
+					<h1>How Angular JS Works</h1>
+					<ul class="fragment">
+						<li>App</li>
+						<li>Controllers</li>
+						<li>Scope</li>
+						<li>Directives</li>
+						<li>Digest Cycle</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>How Angular Works - App</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>How Angular Works - Controllers</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>How Angular Works - Scope</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>How Angular Works - Directives</h4>
+					</header>
+				</section>
+
+				<section>
+					<h1>Simple Angular App</h1>
+					<p>Dev Summit Schedule Viewer</p>
+				</section>
+
+				<section>
+					<img src="not-impressed.png" alt="Not Impressed">
+					<br>
+					<br>
+					<h2 class="fragment">I thought this was about maps...</h2>
+				</section>
+
+				<section>
+					<h1>Fine.</h1>
+					<h1>Lets Make <code>&lt;map&gt;</code>.</h1>
+				</section>
+
+				<section>
+					<h1>But first we have to make Angular and Dojo play nice.</h1>
+				</section>
+
+				<section class="left">
+					<div class="block-group block-group-3-up">
+						<div class="block">
+							<h3>The Good</h3>
+							<ul>
+								<li>Angular has Modules</li>
+								<li>Dojo has Modules</li>
+							</ul>
+						</div>
+						<div class="block">
+							<h3>The Bad</h3>
+							<ul>
+								<li>Angular wants to manage module initalization via dependency injection</li>
+								<li>Dojo wants to manage module loading via AMD</li>
+							</ul>
+						</div>
+						<div class="block">
+							<h3>The Ugly</h3>
+							<ul>
+								<li>No real documentation on doing this</li>
+								<li>No good examples either</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section class="left">
+					<header>
+						<h2>Directives - The Story So Far</h2>
+					</header>
+					<ul>
+						<li>Directive bind data in <code>$scope</code> to DOM elements</li>
+						<li>There are lots of built-in directives like <code>ng-repeat</code>, <code>ng-filter</code> and <code>ng-link</code></li>
+						<li>What if we could bind data in <code>$scope</code> to other things? Charts, Maps ect...</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<header>
+						<h2>Custom Directives - Resources</h2>
+					</header>
+					<ul>
+						<li>http://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/</li>
+						<li>http://thecodebarbarian.wordpress.com/2013/09/23/the-8020-guide-to-writing-angularjs-directives/</li>
+						<li>http://seanhess.github.io/2013/10/14/angularjs-directive-design.html</li>
+						<li>http://www.ng-newsletter.com/posts/directives.html</li>
+						<li>https://github.com/angular/angular.js/wiki/Understanding-Directives</li>
+						<li>http://docs.angularjs.org/guide/directive</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Structure</h4>
+					</header>
+					<p>Here is a basic directive...</p>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Compile</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Link</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Controller</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Scope</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Events</h4>
+					</header>
+					<p>Here is a basic directive...</p>
+				</section>
+
+				<section class="left">
+					<header>
+						<h4>Custom Directives - Data Binding</h4>
+					</header>
+				</section>
+
+				<section class="left">
+					<pre><code class="javascript">App.directive('map', function(){
+  return {
+    restrict: 'E',
+    controller: function($scope){
+    },
+    compile: function(element, attrs){
+		},
+    link: function(scope, element, attrs, controller){
+    }
+  };
+});</code></pre>
+				</section>
+
+				<section>
+					<h1>That Was Fun!</h1>
+					<h1><code>&lt;featureLayer&gt;</code>?</h1>
+				</section>
+
+				<section class="left">
+					<pre><code class="javascript">App.directive('features', function(){
+  return {
+    restrict: 'E',
+    require: '^map',
+    controller: function($scope){
+    },
+    compile: function(element, attrs){
+		},
+    link: function(scope, element, attrs, controller){
+    }
+  };
+});</code></pre>
+				</section>
+
+				<section>
+					<h1>Putting All Togather</h1>
+				</section>
+
+				<section class="left">
+					<div style="vertical-align:middle;">
+						<img src="i-know.jpg" alt="I Know Angular JS" width="825" style="margin: 2.5em 0 0 0;">
+						<div style="float: right; margin-right: 2em;">
+							<h3>Except For&hellip;</h3>
+							<ul>
+								<li>Testing</li>
+								<li>Animations</li>
+								<li>Routing</li>
+								<li>Services</li>
+								<li>Filters</li>
+								<li>And some other stuff...</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section class="left">
+					<h1>Thanks!</h1>
+					<br>
 					<p>Twitter : <a href="http://twitter.com/patrickarlt">@patrickarlt</a></p>
 					<br>
-					<p>GitHub : <a href="http://github.com/patrickarlt">GitHub</a></p>
+					<p>GitHub : <a href="http://github.com/patrickarlt">http://github.com/patrickarlt</a></p>
 					<br>
 					<p>Slides : <a href="http://patrickarlt.github.io/dev-summit-talk-angular-js/">http://patrickarlt.github.io/dev-summit-talk-angular-js/</a></p>
 					<br>
@@ -95,11 +421,14 @@
 				history: true,
 				center: false,
 
+				width: 1366,
+		    height: 768,
+
  				// Factor of the display size that should remain empty around the content
-    		margin: 0.1,
+    		margin: 0.25,
 
     		// Bounds for smallest/largest possible scale to apply to content
-		    minScale: 1.0,
+		    minScale: 0.75,
 		    maxScale: 1.0,
 
 				theme: 'esri', // available themes are in /css/theme

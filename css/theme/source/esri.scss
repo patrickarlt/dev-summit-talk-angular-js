@@ -309,6 +309,7 @@ body {
   padding: 15px 36px;
   background: #f1efee;
   color: #68615e;
+  max-height: 100% !important;
 }
 
 pre {
@@ -316,10 +317,21 @@ pre {
 }
 
 /*********************************************
+ * Lists
+ *********************************************/
+.reveal ol,
+.reveal ul {
+  margin: 0;
+  li {
+    margin-bottom: 1em;
+  }
+}
+
+/*********************************************
  * BLOCK GROUPS
  *********************************************/
 
-.block-group {
+.reveal .block-group {
   font-family: monospace;
   letter-spacing: -.65em;
   margin-left: -1em;
@@ -331,7 +343,7 @@ pre {
   }
 }
 
-.block {
+.reveal  .block {
   position: relative;
   display: inline-block;
   float: none;
@@ -341,7 +353,7 @@ pre {
   font-family: $mainFont;
   letter-spacing: normal;
   text-align: left;
-  vertical-align: top;
+  vertical-align: top !important;
 }
 
 @mixin _block-grid ($prefix: "") {
