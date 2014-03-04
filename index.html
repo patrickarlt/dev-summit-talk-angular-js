@@ -394,6 +394,7 @@ socket.on('data', function(payload){
 							<ul>
 								<li>Angular has Modules</li>
 								<li>Dojo has Modules</li>
+								<li>They work well </li>
 							</ul>
 						</div>
 						<div class="block fragment">
@@ -448,7 +449,36 @@ socket.on('data', function(payload){
 					<header>
 						<h3>Custom Directives - Structure</h3>
 					</header>
-					<p>Here is a basic directive...</p>
+					<pre><code class="javascript">App.directive('features', function(){
+  return {
+    restrict: 'ECA',
+    scope: true,
+    controller: function($scope){
+    },
+    compile: function(element, attrs){
+		},
+    link: function(scope, element, attrs, controller){
+    }
+  };
+});</code></pre>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>Custom Directives - Restrict</h3>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>Custom Directives - Scope</h3>
+					</header>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>Custom Directives - Controller</h3>
+					</header>
 				</section>
 
 				<section class="left">
@@ -465,21 +495,8 @@ socket.on('data', function(payload){
 
 				<section class="left">
 					<header>
-						<h3>Custom Directives - Controller</h3>
+						<h3>Custom Directives - Handling Events</h3>
 					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Scope</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Events</h3>
-					</header>
-					<p>Here is a basic directive...</p>
 				</section>
 
 				<section class="left">
