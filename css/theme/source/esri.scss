@@ -5,169 +5,78 @@
  * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
  * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-
-
-// Default mixins and settings -----------------
-@mixin vertical-gradient( $top, $bottom ) {
-  background: $top;
-  background: -moz-linear-gradient( top, $top 0%, $bottom 100% );
-  background: -webkit-gradient( linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom) );
-  background: -webkit-linear-gradient( top, $top 0%, $bottom 100% );
-  background: -o-linear-gradient( top, $top 0%, $bottom 100% );
-  background: -ms-linear-gradient( top, $top 0%, $bottom 100% );
-  background: linear-gradient( top, $top 0%, $bottom 100% );
-}
-
-@mixin horizontal-gradient( $top, $bottom ) {
-  background: $top;
-  background: -moz-linear-gradient( left, $top 0%, $bottom 100% );
-  background: -webkit-gradient( linear, left top, right top, color-stop(0%,$top), color-stop(100%,$bottom) );
-  background: -webkit-linear-gradient( left, $top 0%, $bottom 100% );
-  background: -o-linear-gradient( left, $top 0%, $bottom 100% );
-  background: -ms-linear-gradient( left, $top 0%, $bottom 100% );
-  background: linear-gradient( left, $top 0%, $bottom 100% );
-}
-
-@mixin radial-gradient( $outer, $inner, $type: circle ) {
-  background: $outer;
-  background: -moz-radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
-  background: -webkit-gradient( radial, center center, 0px, center center, 100%, color-stop(0%,$inner), color-stop(100%,$outer) );
-  background: -webkit-radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
-  background: -o-radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
-  background: -ms-radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
-  background: radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
-}
-
-// Base settings for all themes that can optionally be
-// overridden by the super-theme
-
-// Colors
-$white: #fff;
-
-// Background of the presentation
-$backgroundColor: #005E95;
-
-// Primary/body text
-$mainFont: 'Avenir LT W01 35 Light', sans-serif;
-$mainFontSize: 36px;
-$mainColor: #eee;
-
-// Headings
-$headingMargin: 0 0 20px 0;
-$headingFont: 'Avenir LT W01 35 Light', sans-serif;
-$headingColor: #eee;
-$headingLineHeight: 1.15em;
-$headingLetterSpacing: 0.02em;
-$headingTextTransform: none;
-$headingTextShadow: 0px 0px 6px rgba(0,0,0,0.2);
-$heading1TextShadow: $headingTextShadow;
-
-// Links and actions
-$linkColor: $white;
-$linkColorHover: lighten( $linkColor, 20% );
-
-// Text selection
-$selectionBackgroundColor: #DFCCE3;
-$selectionColor: #fff;
-
-// Generates the presentation background, can be overridden
-// to return a background image or gradient
-@mixin bodyBackground() {
-  background: $backgroundColor;
-}
-// ---------------------------------------------
-
-// Include theme-specific fonts
 @import url("//fast.fonts.net/cssapi/3706abc4-0756-424b-b07b-1748122f85d8.css");
-
-// Theme template ------------------------------
-// Base theme template for reveal.js
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
-
 body {
-  @include bodyBackground();
-  background-color: $backgroundColor;
-}
+  background: #005e95;
+  background-color: #005e95; }
 
 .reveal {
-  font-family: $mainFont;
-  font-size: $mainFontSize;
+  font-family: "Avenir LT W01 35 Light", sans-serif;
+  font-size: 36px;
   font-weight: normal;
-  color: $mainColor;
-}
+  color: #eeeeee; }
 
 ::selection {
-  color: $selectionColor;
-  background: $selectionBackgroundColor;
-  text-shadow: none;
-}
+  color: white;
+  background: #dfcce3;
+  text-shadow: none; }
 
 /*********************************************
  * Layout
  *********************************************/
-
 .center {
   display: block !important;
-  margin: 0 auto !important;
-}
+  margin: 0 auto !important; }
 
 .center-text {
-  text-align: center !important;
-}
+  text-align: center !important; }
 
 .leader {
-  margin-top: 1em;
-}
+  margin-top: 1em; }
 
 .trailer {
-  margin-bottom: 1em;
-}
+  margin-bottom: 1em; }
 
 .anchor-bottom {
   position: absolute;
-  bottom: 0;
-}
+  bottom: 0; }
 
 .anchor-top {
   position: absolute;
-  top: 0;
-}
+  top: 0; }
 
 .anchor-left {
   position: absolute;
-  left: 0;
-}
+  left: 0; }
 
 .anchor-right {
   position: absolute;
-  right: 0;
-}
+  right: 0; }
+
+/*********************************************
+ * Type
+ *********************************************/
+.reveal p, .reveal ul, .reveal ol {
+  margin: 1em 0; }
 
 /*********************************************
  * SLIDES
  *********************************************/
-
 .reveal .slides section.left {
-  text-align: left;
-}
+  text-align: left; }
 
 /*********************************************
  * HEADERS
  *********************************************/
-
 .reveal header {
   border-bottom: 2px solid;
-
   margin-bottom: 0.75em;
-  padding-bottom: 0.5em;
-
-  h1, h2, h3, h4, h5, h6 {
-    padding: 0;
-  }
-}
+  padding-bottom: 0.5em; }
+  .reveal header h1, .reveal header h2, .reveal header h3, .reveal header h4, .reveal header h5, .reveal header h6 {
+    padding: 0; }
 
 .reveal h1,
 .reveal h2,
@@ -175,146 +84,133 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  margin: $headingMargin;
-  color: $headingColor;
-
-  font-family: $headingFont;
-  line-height: $headingLineHeight;
-  letter-spacing: $headingLetterSpacing;
-
-  text-transform: $headingTextTransform;
-  text-shadow: $headingTextShadow;
-}
+  margin: 0 0 20px 0;
+  color: #eeeeee;
+  font-family: "Avenir LT W01 35 Light", sans-serif;
+  line-height: 1.15em;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
 
 .reveal h1 {
-  text-shadow: $heading1TextShadow;
-}
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
 
-.reveal h1 { font-size: 3.77em; }
-.reveal h2 { font-size: 2.11em; }
-.reveal h3 { font-size: 1.55em; }
-.reveal h4 { font-size: 1em;  }
+.reveal h1 {
+  font-size: 3.77em; }
+
+.reveal h2 {
+  font-size: 2.11em; }
+
+.reveal h3 {
+  font-size: 1.55em; }
+
+.reveal h4 {
+  font-size: 1em; }
+
+/*********************************************
+ * BLOCKQUOTE
+ *********************************************/
+.reveal blockquote {
+  font-size: 1.55em;
+  line-height: 1.25em; }
 
 /*********************************************
  * LINKS
  *********************************************/
-
 .reveal a:not(.image) {
-  color: $white;
-  border-bottom: 2px solid $white;
+  color: white;
+  border-bottom: 2px solid white;
   text-decoration: none;
-
   -webkit-transition: color .15s ease;
-     -moz-transition: color .15s ease;
-      -ms-transition: color .15s ease;
-       -o-transition: color .15s ease;
-          transition: color .15s ease;
-}
-  .reveal a:not(.image):hover {
-    color: #8cc0ff;
-    text-shadow: none;
-    border-color: #8cc0ff;
-  }
+  -moz-transition: color .15s ease;
+  -ms-transition: color .15s ease;
+  -o-transition: color .15s ease;
+  transition: color .15s ease; }
+
+.reveal a:not(.image):hover {
+  color: #8cc0ff;
+  text-shadow: none;
+  border-color: #8cc0ff; }
 
 /*********************************************
  * IMAGES
  *********************************************/
-
 .reveal section img {
   -webkit-transition: all .2s linear;
-     -moz-transition: all .2s linear;
-      -ms-transition: all .2s linear;
-       -o-transition: all .2s linear;
-          transition: all .2s linear;
-}
+  -moz-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear; }
 
-  .reveal a:hover img {
-    background: rgba(255,255,255,0.2);
-    border-color: $linkColor;
-
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
-  }
-
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: $linkColor;
-}
+  border-right-color: white; }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: $linkColor;
-}
+  border-left-color: white; }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: $linkColor;
-}
+  border-bottom-color: white; }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: $linkColor;
-}
+  border-top-color: white; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: $linkColorHover;
-}
+  border-right-color: white; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: $linkColorHover;
-}
+  border-left-color: white; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: $linkColorHover;
-}
+  border-bottom-color: white; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: $linkColorHover;
-}
-
+  border-top-color: white; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
-
 .reveal .progress {
-  background: rgba(0,0,0,0.2);
-}
-  .reveal .progress span {
-    background: $linkColor;
+  background: rgba(0, 0, 0, 0.2);
+  height: 10px; }
 
-    -webkit-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-       -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-        -ms-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-         -o-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-            transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-  }
+.reveal .progress span {
+  background: white;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
 /*********************************************
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: $linkColor;
-}
+  color: white; }
 
 /*********************************************
  * CODE
  *********************************************/
-
 .reveal pre code {
   padding: 15px 36px;
   background: #f1efee;
   color: #68615e;
-  max-height: 100% !important;
-}
+  max-height: 100% !important; }
 
-pre {
-  tab-size: 2;
-}
+.reveal pre {
+  width: 100%;
+  tab-size: 2; }
 
 /*********************************************
  * Lists
@@ -322,47 +218,49 @@ pre {
 .reveal ol,
 .reveal ul {
   margin: 0;
-  display: block;
-  li {
-    margin-bottom: 1em;
-  }
-}
+  display: block; }
+  .reveal ol li,
+  .reveal ul li {
+    margin-bottom: 1em; }
 
 /*********************************************
  * BLOCK GROUPS
  *********************************************/
-
 .reveal .block-group {
   font-family: monospace;
   letter-spacing: -.65em;
   margin-left: -1em;
   margin-right: -1em;
   text-align: left;
-  display: block;
-  &.center {
-    text-align: center;
-  }
-}
+  display: block; }
+  .reveal .block-group.center {
+    text-align: center; }
 
-.reveal  .block {
+.reveal .block {
   position: relative;
   display: inline-block;
   float: none;
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 1em;
   padding-right: 1em;
-  font-family: $mainFont;
+  font-family: "Avenir LT W01 35 Light", sans-serif;
   letter-spacing: normal;
   text-align: left;
-  vertical-align: top !important;
-}
+  vertical-align: top !important; }
 
-@mixin _block-grid ($prefix: "") {
-  .#{$prefix}block-group-1-up .block { width: 100%; }
-  .#{$prefix}block-group-2-up .block { width: 50%; }
-  .#{$prefix}block-group-3-up .block { width: 33.33333%; }
-  .#{$prefix}block-group-4-up .block { width: 25%; }
-  .#{$prefix}block-group-5-up .block { width: 20%; }
-}
+.block-group-1-up .block {
+  width: 100%; }
 
-@include _block-grid();
+.block-group-2-up .block {
+  width: 50%; }
+
+.block-group-3-up .block {
+  width: 33.33333%; }
+
+.block-group-4-up .block {
+  width: 25%; }
+
+.block-group-5-up .block {
+  width: 20%; }

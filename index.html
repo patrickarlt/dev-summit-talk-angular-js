@@ -119,13 +119,11 @@
 						<li>Custom Elements</li>
 						<li>HTML Imports</li>
 					</ul>
-					<br><br>
 					<p><a href="https://www.youtube.com/watch?v=fqULJBBEVQE#t=177">https://www.youtube.com/watch?v=fqULJBBEVQE#t=177</a></p>
 				</section>
 
 				<section>
-					<pre><code class="xml">
-&lt;!DOCTYPE html&gt;
+					<pre><code class="xml">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;Mind Blown&lt;/title&gt;
@@ -158,7 +156,6 @@
 					<h1>So This Angular JS Thing...</h1>
 					<br>
 					<p>Angular is the only production-ready way to do ANYTHING like Web Components</p>
-					<p>Angular also has tons of stuff for building complex web apps</p>
 					<br>
 					<p class="fragment">Angular JS is a shim for the future of the internet...</p>
 				</section>
@@ -169,44 +166,224 @@
 					<p>~275 lines of code</p>
 				</section>
 
-				<section class="left">
-					<h1>How Angular JS Works</h1>
-					<ul class="fragment">
-						<li>App</li>
-						<li>Controllers</li>
-						<li>Scope</li>
-						<li>Directives</li>
-						<li>Digest Cycle</li>
+				<section>
+					<h1>Angular JS Features</h1>
+					<ul class="block-group block-group-3-up">
+						<li class="block">Data Binding</li>
+						<li class="block">Controller</li>
+						<li class="block">Plain JavaScript</li>
+						<li class="block">Deep Linking</li>
+						<li class="block">Form Validation</li>
+						<li class="block">Server Communication</li>
+						<li class="block">Directives</li>
+						<li class="block">Reusable Components</li>
+						<li class="block">Localization</li>
+						<li class="block">Embeddable</li>
+						<li class="block">Injectable</li>
+						<li class="block">Testable</li>
 					</ul>
+				</section>
+
+				<section>
+					<h1>How Angular JS Works</h1>
+				</section>
+
+				<section>
+					<h1>A Simple Angular App</h1>
+					<p><a href="">http://jsfiddle.net/patrickarlt/LS2Vp/2/</a></p>
 				</section>
 
 				<section class="left">
 					<header>
 						<h4>How Angular Works - App</h4>
 					</header>
+					<p>Angular has its own system for scoping and namespaceing modules.</p>
+					<pre><code class="javascript">var app = angular.module('todo', []);</code></pre>
+					<pre><code class="html">&lt;div ng-app=&quot;todo&quot;&gt;
+  ...
+&lt;/div&gt;</code></pre>
 				</section>
 
 				<section class="left">
 					<header>
-						<h4>How Angular Works - Controllers</h4>
+						<h3>How Angular Works - Controllers and <code>$scope</code></h3>
 					</header>
+					<p><code>$scope</code> represents our "Model" and how we interact with our data</p>
+					<p>Controllers bind our <code>$scope</code> to chunks of DOM</p>
 				</section>
 
 				<section class="left">
 					<header>
-						<h4>How Angular Works - Scope</h4>
+						<h3>How Angular Works - Controllers and <code>$scope</code></h3>
 					</header>
+					<pre><code class="html">
+<div ng-app>
+	<div ng-controller="MainCtrl">
+		{{title}}
+	</div>
+</div>
+					</code></pre>
+					<pre><code class="javascript">
+function MainCtrl($scope){
+	$scope.title = "Hello World";
+}
+					</code></pre>
+					<a href="http://jsfiddle.net/patrickarlt/qv2v5/">http://jsfiddle.net/patrickarlt/qv2v5/</a>
 				</section>
 
 				<section class="left">
 					<header>
-						<h4>How Angular Works - Directives</h4>
+						<h3>How Angular Works - Controllers & <code>$scope</code></h3>
 					</header>
+					<ul>
+						<li>Attach our data to <code>$scope</code></li>
+						<li>Controller will bind <code>$scope</code> to DOM</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>How Angular Works - Expressions</h3>
+					</header>
+					<ul>
+						<li>You have secretly been using expressions this whole time!</li>
+						<li><code>{{ title }}</code> is an expression.</li>
+						<li>So is <code>{{ "Angular Says" + title }}</code></li>
+						<li>Expressions are ALWAYS evaluated against the current <code>$scope</code></li>
+					</ul>
+					<p></p>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>How Angular Works - Directives</h3>
+					</header>
+					<p>Directives tell Angular HOW to bind <code>$scope</code> to the DOM</p>
+					<pre><code class="html"><div ng-app>
+    <div ng-controller="MainCtrl">
+        <h1 ng-class="{big: isBig}">{{title}}</h1>
+    </div>
+</div></code></pre>
+<pre><code class="javascript">function MainCtrl($scope){
+    $scope.isBig = true;
+    $scope.title = "Hello World"
+}</code></pre>
+
+					<a href="http://jsfiddle.net/patrickarlt/5CRkr/1/">http://jsfiddle.net/patrickarlt/5CRkr/1/</a>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>How Angular Works - Data Binding</h3>
+					</header>
+					<p>Bind data from <code>$scope</code> to DOM and vica-versa</p>
+					<pre><code class="html"><div ng-app>
+    <div ng-controller="MainCtrl">
+        <input type="text" ng-model="title" />
+        <h1>{{title}}</h1>
+    </div>
+</div></code></pre>
+<pre><code class="javascript">function MainCtrl($scope){
+    $scope.title = "Hello World"
+}</code></pre>
+				<a href="http://jsfiddle.net/patrickarlt/w3ZU3/">http://jsfiddle.net/patrickarlt/w3ZU3/</a>
 				</section>
 
 				<section>
-					<h1>Simple Angular App</h1>
-					<p>Dev Summit Schedule Viewer</p>
+					<img src="magic.jpg" alt="">
+					<h3>Is Magic</h3>
+				</section>
+
+				<section>
+					<h1>How does Angular know the scope changed!</h1>
+					<p class="fragment">You can't watch JavaScript objects for changes!</p>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>How Angular Works - Dirty Checking</h3>
+					</header>
+					<p class="fragment">Angular compares the new <code>$scope</code> the old <code>$scope</code></p>
+					<p class="fragment">If data in the <code>$scope</code> changed, directives will handle changing the DOM</p>
+					<p class="fragment"><a href="http://stackoverflow.com/questions/9682092/databinding-in-angularjs">http://stackoverflow.com/questions/9682092/databinding-in-angularjs</a></p>
+				</section>
+
+				<section>
+					<h2>So how does Angular know when to do dirty checking?</h2>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>How Angular Works - Digest Loop</h3>
+					</header>
+					<p>First lets break Angular&hellip;</p>
+					<pre><code class="html"><div ng-app>
+    <div ng-controller="MainCtrl">
+        <h1>{{title}}</h1>
+    </div>
+</div></code></pre>
+					<pre><code class="javascript">function MainCtrl($scope){
+    $scope.title = "Hello World"
+
+    setTimeout(function(){
+        $scope.title = "Angular is Magic!";
+    }, 500);
+}</code></pre>
+					<a href="http://jsfiddle.net/patrickarlt/u5T9v/">http://jsfiddle.net/patrickarlt/u5T9v/</a>
+				</section>
+
+									<section class="left">
+					<header>
+						<h3>How Angular Works - <code>$scope.$apply</code></h3>
+					</header>
+					<p>Tells Angular you are changing the <code>$scope</code>.</p>
+					<pre><code class="html"><div ng-app>
+    <div ng-controller="MainCtrl">
+        <h1>{{title}}</h1>
+    </div>
+</div></code></pre>
+					<pre><code class="javascript">function MainCtrl($scope){
+    $scope.title = "Hello World"
+
+    setTimeout(function(){
+        $scope.$apply(function(){
+            $scope.title = "Angular is Magic!";
+        });
+    }, 500);
+}</code></pre>
+					<a href="http://jsfiddle.net/patrickarlt/JRvnH/">http://jsfiddle.net/patrickarlt/JRvnH/</a>
+				</section>
+
+				<section class="left">
+					<header>
+						<h3>How Angular Works - <code>$scope.$apply</code></h3>
+					</header>
+					<p>Most of the time you don't have to call <code>$scope.$apply</code>. Just use Angulars helpers, they wrap <code>$scope.$apply</code> for you.</p>
+					<pre><code class="javascript">function MainCtrl($scope, $timeout){
+    $scope.title = "Hello World"
+
+    $timeout(function(){
+        $scope.title = "Angular is Magic!";
+    }, 500);
+}</code></pre>
+					<a href="http://jsfiddle.net/patrickarlt/MzjL6/1">http://jsfiddle.net/patrickarlt/MzjL6/</a>
+				</section>
+
+				<section>
+						<h2>One last <code>$scope.$apply</code> example</h2>
+						<pre><code class="javascript">var socket = io.connect('http://api.mapattack.org:8000');
+
+socket.on('data', function(payload){
+  $scope.$apply(function(){
+		$scope.gameState = payload;
+  });
+});</code></pre>
+					<p class="fragment">Think of <code>$scope.$apply</code> as APPLYING changes to your SCOPE</p>
+				</section>
+
+				<section>
+					<h1>A Simple Angular App</h1>
+					<p><a href="">http://jsfiddle.net/patrickarlt/LS2Vp/2/</a></p>
 				</section>
 
 				<section>
@@ -227,21 +404,21 @@
 
 				<section class="left">
 					<div class="block-group block-group-3-up">
-						<div class="block">
+						<div class="block fragment">
 							<h3>The Good</h3>
 							<ul>
 								<li>Angular has Modules</li>
 								<li>Dojo has Modules</li>
 							</ul>
 						</div>
-						<div class="block">
+						<div class="block fragment">
 							<h3>The Bad</h3>
 							<ul>
 								<li>Angular wants to manage module initalization via dependency injection</li>
 								<li>Dojo wants to manage module loading via AMD</li>
 							</ul>
 						</div>
-						<div class="block">
+						<div class="block fragment">
 							<h3>The Ugly</h3>
 							<ul>
 								<li>No real documentation on doing this</li>
@@ -256,9 +433,9 @@
 						<h2>Directives - The Story So Far</h2>
 					</header>
 					<ul>
-						<li>Directive bind data in <code>$scope</code> to DOM elements</li>
-						<li>There are lots of built-in directives like <code>ng-repeat</code>, <code>ng-filter</code> and <code>ng-link</code></li>
-						<li>What if we could bind data in <code>$scope</code> to other things? Charts, Maps ect...</li>
+						<li class="fragment">Directive tell Controllers how to bind <code>$scope</code> to DOM</li>
+						<li class="fragment">There are lots of built-in directives like <code>ng-repeat</code>, <code>ng-submit</code> and <code>ng-class</code></li>
+						<li class="fragment">What if we could bind data in <code>$scope</code> to other things? Charts, Maps ect...</li>
 					</ul>
 				</section>
 
@@ -267,10 +444,10 @@
 						<h2>Custom Directives - Resources</h2>
 					</header>
 					<ul>
-						<li>http://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/</li>
-						<li>http://thecodebarbarian.wordpress.com/2013/09/23/the-8020-guide-to-writing-angularjs-directives/</li>
-						<li>http://seanhess.github.io/2013/10/14/angularjs-directive-design.html</li>
-						<li>http://www.ng-newsletter.com/posts/directives.html</li>
+						<li><a href="http://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/">http://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/</a></li>
+						<li><a href="http://thecodebarbarian.wordpress.com/2013/09/23/the-8020-guide-to-writing-angularjs-directives/">http://thecodebarbarian.wordpress.com/2013/09/23/the-8020-guide-to-writing-angularjs-directives/</a></li>
+						<li><a href="http://seanhess.github.io/2013/10/14/angularjs-directive-design.html">http://seanhess.github.io/2013/10/14/angularjs-directive-design.html</a></li>
+						<li><a href="http://www.ng-newsletter.com/posts/directives.html">http://www.ng-newsletter.com/posts/directives.html</a></li>
 						<li>https://github.com/angular/angular.js/wiki/Understanding-Directives</li>
 						<li>http://docs.angularjs.org/guide/directive</li>
 					</ul>
@@ -360,7 +537,7 @@
 
 				<section class="left">
 					<div style="vertical-align:middle;">
-						<img src="i-know.jpg" alt="I Know Angular JS" width="825" style="margin: 2.5em 0 0 0;">
+						<img src="i-know.jpg" alt="I Know Angular JS" width="825" style="margin: 3.5em 0 0 0;">
 						<div style="float: right; margin-right: 2em;">
 							<h3>Except For&hellip;</h3>
 							<ul>
@@ -369,6 +546,7 @@
 								<li>Routing</li>
 								<li>Services</li>
 								<li>Filters</li>
+								<li>Dependency Injection</li>
 								<li>And some other stuff...</li>
 							</ul>
 						</div>
@@ -379,11 +557,7 @@
 					<h1>Thanks!</h1>
 					<br>
 					<p>Twitter : <a href="http://twitter.com/patrickarlt">@patrickarlt</a></p>
-					<br>
-					<p>GitHub : <a href="http://github.com/patrickarlt">http://github.com/patrickarlt</a></p>
-					<br>
 					<p>Slides : <a href="http://patrickarlt.github.io/dev-summit-talk-angular-js/">http://patrickarlt.github.io/dev-summit-talk-angular-js/</a></p>
-					<br>
 					<div class="center-text">
 						<img src="esri-logo.png" alt="Esri" width="280" height="118" >
 					</div>
