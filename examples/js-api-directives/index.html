@@ -17,13 +17,14 @@
 
   </head>
   <body ng-controller="MapCtrl">
-    <div esri-map id="map" center="40.714736512395284, -74.00596618652344" zoom="14" basemap="topo">
-      <esri-feature-layer url="http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0"></esri-feature-layer>
+
+    <esri-map id="map" center="center" zoom="zoom" basemap="basemap" onclick="click">
       <esri-feature-layer url="http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/NYC_Police_Precincts/FeatureServer/0"></esri-feature-layer>
-    </div>
+      <esri-feature-layer url="http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0"></esri-feature-layer>
+    </esri-map>
 
     <!-- load Angular and the JS API -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js"></script>
     <script src="http://js.arcgis.com/3.8/"></script>
 
     <!-- load our setup file -->

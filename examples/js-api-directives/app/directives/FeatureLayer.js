@@ -5,22 +5,29 @@ define([
 ], function (angular, app, FeatureLayer) {
   app.directive('esriFeatureLayer', function(){
     return {
-      restrict: 'EA',
-      require: '^esriMap',
+      restrict: 'E',
+      require: ["esriFeatureLayer", "^esriMap"],
       replace: true,
       transclude: true,
-      scope: {},
-      link: function(scope, element, attrs, mapController){
+      controller: function($scope, $element, $attrs){
+        var layer = new FeatureLayer($attrs.url);
+
+        this.getLayer = function(){
+          return layer;
+        };
+      },
+      link: function(scope, element, attrs, controllers){
         console.group("fl link");
         console.log("scope", scope);
         console.log("element", element);
         console.log("attrs", attrs);
-        console.log("controller", mapController);
+        console.log("controllers", controllers);
         console.groupEnd("link");
 
-        var layer = new FeatureLayer(attrs.url);
+        var layerController = controllers[0];
+        var mapController = controllers[1];
 
-        mapController.addLayer(layer);
+        mapController.addLayer(layerController.getLayer());
       }
     };
   });
