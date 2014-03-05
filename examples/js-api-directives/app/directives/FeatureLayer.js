@@ -1,8 +1,7 @@
 define([
-  'angular',
   'app',
   'esri/layers/FeatureLayer'
-], function (angular, app, FeatureLayer) {
+], function (app, FeatureLayer) {
   app.directive('esriFeatureLayer', function(){
     return {
       restrict: 'E',
@@ -17,13 +16,6 @@ define([
         };
       },
       link: function(scope, element, attrs, controllers){
-        console.group("fl link");
-        console.log("scope", scope);
-        console.log("element", element);
-        console.log("attrs", attrs);
-        console.log("controllers", controllers);
-        console.groupEnd("link");
-
         var layerController = controllers[0];
         var mapController = controllers[1];
 
