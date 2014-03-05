@@ -6,9 +6,21 @@
     <title>Angular JS and Dojo</title>
 
     <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
+
+    <style>
+      html, body, #map {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
   </head>
-  <body ng-controller="MainCtrl">
-    <h1>{{title}}</h1>
+  <body ng-controller="MapCtrl">
+    <div esri-map id="map" center="40.714736512395284, -74.00596618652344" zoom="14" basemap="topo">
+      <esri-feature-layer url="http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0"></esri-feature-layer>
+      <esri-feature-layer url="http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/NYC_Police_Precincts/FeatureServer/0"></esri-feature-layer>
+    </div>
 
     <!-- load Angular and the JS API -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>

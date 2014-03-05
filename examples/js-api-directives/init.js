@@ -1,7 +1,7 @@
 require([
   'angular',
   'app',
-  'app/controllers/MainCtrl',
+  'app/controllers/MapCtrl',
   'app/directives/Map',
   'app/directives/FeatureLayer'
 ], function(angular) {

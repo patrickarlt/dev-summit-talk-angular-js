@@ -56,28 +56,24 @@
 				</section>
 
 				<section>
-					<h2>The Internet says Angular JS is amazing!</h2>
+					<h1>Angular JS is amazing!</h1>
 				</section>
 
 				<section>
 					<div class="block-group block-group-2-up">
 						<div class="block" style="text-align:center;">
-							<br>
 							<img src="diagram1.png" alt="">
 							<br>
 						</div>
 						<div class="block" style="text-align:center;">
-							<br>
 							<img src="diagram2.png" alt="">
 							<br>
 						</div>
 						<div class="block" style="text-align:center;">
-							<br>
 							<img src="diagram3.png" alt="">
 							<br>
 						</div>
 						<div class="block" style="text-align:center;">
-							<br>
 							<img src="diagram4.png" alt="">
 							<br>
 						</div>
@@ -85,6 +81,8 @@
 				</section>
 
 				<section class="left">
+					<div class="center-text">
+					</div>
 					<div style="vertical-align:middle;">
 						<img src="terminology.jpg" alt="" class="float:left;" width="800">
 						<ul style="float: right; margin-top: 1.5em; margin-right: 2em;">
@@ -449,10 +447,11 @@ socket.on('data', function(payload){
 					<header>
 						<h3>Custom Directives - Structure</h3>
 					</header>
-					<pre><code class="javascript">App.directive('features', function(){
+					<pre><code class="javascript">App.directive('esriMap', function(){
   return {
     restrict: 'ECA',
     scope: true,
+    template: "<div></div>"
     controller: function($scope){
     },
     compile: function(element, attrs){
@@ -467,23 +466,29 @@ socket.on('data', function(payload){
 					<header>
 						<h3>Custom Directives - Restrict</h3>
 					</header>
+					<p>Determines how the directive can be used</p>
+					<pre><code class="javascript">{
+	...
+	restrict: 'ECA',
+	...
+}</code></pre>
+					<pre><code class="html"><!-- as an Element -->
+<esri-map></esri-map></code></pre>
+					<pre><code class="html"><!-- as an Attribute -->
+<div esri-map></div></code></pre>
+					<pre><code class="html"><!-- as a Class -->
+<div class="esri-map"></div></code></pre>
 				</section>
 
 				<section class="left">
 					<header>
-						<h3>Custom Directives - Scope</h3>
+						<h3>Custom Directives - Templates & Compile</h3>
 					</header>
 				</section>
 
 				<section class="left">
 					<header>
-						<h3>Custom Directives - Controller</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Compile</h3>
+						<h3>Custom Directives - Controller & Scope</h3>
 					</header>
 				</section>
 
