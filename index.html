@@ -49,7 +49,7 @@
 				<section class="left">
 					<h1>Mapping Apps w/ Angular JS</h1>
 					<h3>Patrick Arlt</h3>
-					<p>Experiance Developer - Esri Portland R&D Center</p>
+					<p>Experience Developer - Esri Portland R&D Center</p>
 					<p><a href="http://twitter.com/patrickarlt">@patrickarlt</a> - <a href="http://patrickarlt.github.io/dev-summit-talk-angular-js/">http://patrickarlt.github.io/dev-summit-talk-angular-js/</a></p>
 				</section>
 
@@ -199,17 +199,11 @@
 					</header>
 					<p><code>$scope</code> represents our "Model" and how we interact with our data</p>
 					<p>Controllers bind our <code>$scope</code> to chunks of DOM</p>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>How Angular Works - Controllers and <code>$scope</code></h3>
-					</header>
-					<pre><code class="html"><div ng-app>
-	<div ng-controller="MainCtrl">
+					<pre><code class="html">&lt;div ng-app&gt;
+	&lt;div ng-controller=&quot;MainCtrl&quot;&gt;
 		{{title}}
-	</div>
-</div></code></pre>
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 					<pre><code class="javascript">function MainCtrl($scope){
 	$scope.title = "Hello World";
 }</code></pre>
@@ -218,20 +212,10 @@
 
 				<section class="left">
 					<header>
-						<h3>How Angular Works - Controllers & <code>$scope</code></h3>
-					</header>
-					<ul>
-						<li>Attach our data to <code>$scope</code></li>
-						<li>Controller will bind <code>$scope</code> to DOM</li>
-					</ul>
-				</section>
-
-				<section class="left">
-					<header>
 						<h3>How Angular Works - Expressions</h3>
 					</header>
+					<p>Expressions are simple code peices that Angular can parse and evaluate</p>
 					<ul>
-						<li>You have secretly been using expressions this whole time!</li>
 						<li><code>{{ title }}</code> is an expression.</li>
 						<li>So is <code>{{ "Angular Says " + title }}</code></li>
 						<li>Expressions are ALWAYS evaluated against the current <code>$scope</code></li>
@@ -367,7 +351,7 @@ socket.on('data', function(payload){
 
 				<section>
 					<h1>A Simple Angular App</h1>
-					<p><a href="">http://jsfiddle.net/patrickarlt/LS2Vp/2/</a></p>
+					<p><a href="http://jsfiddle.net/patrickarlt/LS2Vp//">http://jsfiddle.net/patrickarlt/LS2Vp/3/</a></p>
 				</section>
 
 				<section>
@@ -391,9 +375,9 @@ socket.on('data', function(payload){
 						<div class="block fragment">
 							<h3>The Good</h3>
 							<ul>
-								<li>Angular has Modules</li>
-								<li>Dojo has Modules</li>
-								<li>They work well </li>
+								<li>Angular has modules</li>
+								<li>Dojo has modules</li>
+								<li>They will work togather</li>
 							</ul>
 						</div>
 						<div class="block fragment">
@@ -406,16 +390,15 @@ socket.on('data', function(payload){
 						<div class="block fragment">
 							<h3>The Ugly</h3>
 							<ul>
-								<li>No real documentation on doing this</li>
-								<li>No good examples either</li>
+								<li>No good docs on combining the module systems</li>
+								<li>Most examples are overly complex or broken</li>
 							</ul>
 						</div>
 					</div>
 					<br>
 					<div class="fragment">
 						<hr>
-						<p class="center-text"><a href="https://github.com/patrickarlt/dev-summit-talk-angular-js/tree/gh-pages/examples/js-api-setup">Example Setup on GitHub</a></p>
-						<p class="center-text"><a href="https://github.com/odoe/angular-esri">Alternate Example</a></p>
+						<p class="center-text"><a href="https://github.com/patrickarlt/dev-summit-talk-angular-js/tree/gh-pages/examples/js-api-setup">Angular JS + JS API Setup on GitHub</a></p>
 					</div>
 				</section>
 
