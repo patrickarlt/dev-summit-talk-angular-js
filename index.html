@@ -429,99 +429,15 @@ socket.on('data', function(payload){
 					</ul>
 				</section>
 
-				<section class="left">
-					<header>
-						<h2>Custom Directives - Resources</h2>
-					</header>
-					<ul>
-						<li><a href="http://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/">http://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/</a></li>
-						<li><a href="http://thecodebarbarian.wordpress.com/2013/09/23/the-8020-guide-to-writing-angularjs-directives/">http://thecodebarbarian.wordpress.com/2013/09/23/the-8020-guide-to-writing-angularjs-directives/</a></li>
-						<li><a href="http://seanhess.github.io/2013/10/14/angularjs-directive-design.html">http://seanhess.github.io/2013/10/14/angularjs-directive-design.html</a></li>
-						<li><a href="http://www.ng-newsletter.com/posts/directives.html">http://www.ng-newsletter.com/posts/directives.html</a></li>
-						<li><a href="https://github.com/angular/angular.js/wiki/Understanding-Directives">https://github.com/angular/angular.js/wiki/Understanding-Directives</a></li>
-						<li><a href="http://docs.angularjs.org/guide/directive">http://docs.angularjs.org/guide/directive</a></li>
-					</ul>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Structure</h3>
-					</header>
-					<pre><code class="javascript">App.directive('esriMap', function(){
-  return {
-    restrict: 'ECA',
-    scope: true,
-    template: "<div></div>"
-    controller: function($scope){
-    },
-    compile: function(element, attrs){
-		},
-    link: function(scope, element, attrs, controller){
-    }
-  };
-});</code></pre>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Restrict</h3>
-					</header>
-					<p>Determines how the directive can be used</p>
-					<pre><code class="javascript">{
-	...
-	restrict: 'ECA',
-	...
-}</code></pre>
-					<pre><code class="html"><!-- as an Element -->
-<esri-map></esri-map></code></pre>
-					<pre><code class="html"><!-- as an Attribute -->
-<div esri-map></div></code></pre>
-					<pre><code class="html"><!-- as a Class -->
-<div class="esri-map"></div></code></pre>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Templates & Compile</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Controller & Scope</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Link</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Handling Events</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<header>
-						<h3>Custom Directives - Data Binding</h3>
-					</header>
-				</section>
-
-				<section class="left">
-					<pre><code class="javascript">App.directive('map', function(){
-  return {
-    restrict: 'E',
-    controller: function($scope){
-    },
-    compile: function(element, attrs){
-		},
-    link: function(scope, element, attrs, controller){
-    }
-  };
-});</code></pre>
+				<section>
+					<h1>Custom Directives</h1>
+					<p>Warning! Writing your own directives are a HUGE topic!</p>
+					<pre><code class="html">&lt;div ng-controller=&quot;MapCtrl&quot;&gt;
+  &lt;esri-map id=&quot;map&quot; center=&quot;-73.97163391113281,40.70579060224226&quot; zoom=&quot;14&quot; basemap=&quot;topo&quot; onclick=&quot;click&quot;&gt;
+    &lt;esri-feature-layer url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/NYC_Police_Precincts/FeatureServer/0&quot;&gt;&lt;/esri-feature-layer&gt;
+    &lt;esri-feature-layer url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0&quot;&gt;&lt;/esri-feature-layer&gt;
+  &lt;/esri-map&gt;
+&lt;/div&gt;</code></pre>
 				</section>
 
 				<section>

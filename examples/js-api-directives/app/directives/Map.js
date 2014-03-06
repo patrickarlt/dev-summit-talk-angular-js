@@ -4,22 +4,19 @@ define([
   'esri/geometry/Point'
 ], function (app, Map, Point) {
   app.directive('esriMap', function(){
-
-    function linker(scope, element, attrs, controller){
-      scope.$watch("center", function (newCenter, oldCenter) {
-        if(newCenter !== oldCenter){
-          controller.centerAt(newCenter);
-        }
-      });
-    }
-
     return {
       restrict: 'E',
       compile: function($element, $attrs){
         $element.removeAttr("id");
         $element.append("<div id=" + $attrs.id + "></div>");
 
-        return linker;
+        return function (scope, element, attrs, controller){
+          scope.$watch("center", function (newCenter, oldCenter) {
+            if(newCenter !== oldCenter){
+              controller.centerAt(newCenter);
+            }
+          });
+        };
       },
       controller: function($scope, $element, $attrs){
         var mapOptions = {

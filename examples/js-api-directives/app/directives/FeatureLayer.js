@@ -7,7 +7,6 @@ define([
       restrict: 'E',
       require: ["esriFeatureLayer", "^esriMap"],
       replace: true,
-      transclude: true,
       controller: function($scope, $element, $attrs){
         var layer = new FeatureLayer($attrs.url);
 
