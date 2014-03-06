@@ -2,7 +2,7 @@
 require([
   'angular',
   'app',
-  'app/controllers/MainCtrl'
+  'app/controllers/MapCtrl'
 ], function(angular) {
   // since we didn't include ng-app anywhere in our HTML angular hasn't started yet
   // angular.bootstrap is the same as putting ng-app="app" on the body, but we control when it is called
