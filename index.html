@@ -40,6 +40,8 @@
 
 	<body>
 
+		<a href="http://github.com/patrickarlt/dev-summit-talk-angular-js"><img style="z-index: 1000; position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+
 		<div class="reveal">
 
 			<div class="slides">
@@ -123,9 +125,9 @@
 		&lt;link rel=&quot;import&quot; href=&quot;esri-maps.html&quot;&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
-		&lt;map id=&quot;map&quot;center=&quot;45.528, -122.680&quot; zoom=&quot;15&quot;&gt;
-			&lt;featureLayer id=&quot;parks&quot; url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0&quot; /&gt;
-		&lt;/map&gt;
+		&lt;esri-map id=&quot;map&quot;center=&quot;45.528, -122.680&quot; zoom=&quot;15&quot;&gt;
+			&lt;esri-feature-layer id=&quot;parks&quot; url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0&quot; &lt;esri-feature-layer&gt;
+		&lt;/esri-map&gt;
 
 		&lt;script type=&quot;text/javascript&quot;&gt;
 			var map = document.getElementById("map");
@@ -278,8 +280,7 @@
 				</section>
 
 				<section>
-					<h1>How does Angular know the scope changed!</h1>
-					<p class="fragment">You can't watch JavaScript objects for changes!</p>
+					<h1>How does Angular know the scope changed!?!?!</h1>
 				</section>
 
 				<section class="left">
@@ -341,7 +342,7 @@
 					<header>
 						<h3>How Angular Works - <code>$scope.$apply</code></h3>
 					</header>
-					<p>Most of the time you don't have to call <code>$scope.$apply</code>. Just use Angulars helpers, they wrap <code>$scope.$apply</code> for you.</p>
+					<p>Most of the time you don't have to call <code>$scope.$apply</code>. Just use Angulars helpers.</p>
 					<pre><code class="javascript">function MainCtrl($scope, $timeout){
     $scope.title = "Hello World"
 
@@ -361,7 +362,7 @@ socket.on('data', function(payload){
 		$scope.gameState = payload;
   });
 });</code></pre>
-					<p class="fragment">Think of <code>$scope.$apply</code> as APPLYING changes to your SCOPE</p>
+					<p class="fragment">Think of <code>$scope.$apply</code> as APPLYING changes to the SCOPE</p>
 				</section>
 
 				<section>
@@ -378,11 +379,11 @@ socket.on('data', function(payload){
 
 				<section>
 					<h1>Fine.</h1>
-					<h1>Lets Make <code>&lt;map&gt;</code>.</h1>
+					<h1>Lets Make<br><code>&lt;esri-map&gt;</code></h1>
 				</section>
 
 				<section>
-					<h1>But first we have to make Angular and Dojo play nice.</h1>
+					<h1>But first we have to make Angular and Dojo play nice</h1>
 				</section>
 
 				<section class="left">
@@ -418,50 +419,21 @@ socket.on('data', function(payload){
 					</div>
 				</section>
 
-				<section class="left">
-					<header>
-						<h2>Directives - The Story So Far</h2>
-					</header>
-					<ul>
-						<li class="fragment">Directive tell Controllers how to bind <code>$scope</code> to DOM</li>
-						<li class="fragment">There are lots of built-in directives like <code>ng-repeat</code>, <code>ng-submit</code> and <code>ng-class</code></li>
-						<li class="fragment">What if we could bind <code>$scope</code> to other things? Charts, maps ect...</li>
-					</ul>
-				</section>
-
 				<section>
 					<h1>Custom Directives</h1>
-					<p>Warning! Writing your own directives are a HUGE topic!</p>
-					<pre><code class="html">&lt;div ng-controller=&quot;MapCtrl&quot;&gt;
+					<p class="fragment">Warning! Writing your own directives are a HUGE topic!</p>
+					<pre class="fragment"><code class="html">&lt;div ng-controller=&quot;MapCtrl&quot;&gt;
   &lt;esri-map id=&quot;map&quot; center=&quot;-73.97163391113281,40.70579060224226&quot; zoom=&quot;14&quot; basemap=&quot;topo&quot; onclick=&quot;click&quot;&gt;
     &lt;esri-feature-layer url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/NYC_Police_Precincts/FeatureServer/0&quot;&gt;&lt;/esri-feature-layer&gt;
     &lt;esri-feature-layer url=&quot;http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0&quot;&gt;&lt;/esri-feature-layer&gt;
   &lt;/esri-map&gt;
 &lt;/div&gt;</code></pre>
-				</section>
-
-				<section>
-					<h1>That Was Fun!</h1>
-					<h1><code>&lt;featureLayer&gt;</code>?</h1>
-				</section>
-
-				<section class="left">
-					<pre><code class="javascript">App.directive('features', function(){
-  return {
-    restrict: 'E',
-    require: '^map',
-    controller: function($scope){
-    },
-    compile: function(element, attrs){
-		},
-    link: function(scope, element, attrs, controller){
-    }
-  };
-});</code></pre>
+	<p class="fragment"><a href="https://github.com/patrickarlt/dev-summit-talk-angular-js/blob/gh-pages/examples/js-api-directives/app/directives/Map.js"><code>esri-map</code></a> | <a href="https://github.com/patrickarlt/dev-summit-talk-angular-js/blob/gh-pages/examples/js-api-directives/app/directives/FeatureLayer.js"><code>esri-feature-layer</code></a></p>
 				</section>
 
 				<section>
 					<h1>Putting All Togather</h1>
+					<p><a href="http://patrickarlt.github.io/dev-summit-talk-angular-js/examples/js-api-directives/">Final Demo</a></p>
 				</section>
 
 				<section class="left">
